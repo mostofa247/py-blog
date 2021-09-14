@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+{% load custom_filters %}
+{% block title_block %} Home {% endblock %}
+{% block body_block %}
+{% for blog in blogs %}
+<div class="bg-dark p-5 text-light">
+    <h3 class="text-center">{{blog.blog_title}}</h3>
+    <h6>Posted By: <a href="#" class="text-decoration-none text-capitalize text-light">{{blog.author}}</a></h6>
+    <div class="row">
+        <div class="col-sm-4 mt-3">
+            <img src="/media/{{blog.blog_image}}" alt="{{blog.blog_title}}" title="{{blog.blog_title}}" width="100%">
+        </div>
+        <div class="col-sm-8">
+            <p>{{blog.blog_content|range_filter|linebreaks}} <a href="{% url 'App_Blog:blog_details' slug=blog.slug %}"
+                    class="text-decoration-none text-capitalize text-light">Read More...</a></p>
+            <h6><i>{{blog.publish_date}}</i></h6>
+            <h6>Likes: <span class="text-info">{{blog.liked_blog.count}}</span> | Comment: <span class="text-info">{{blog.Blog_comment.count}}</span></h6>
+        </div>
+    </div>
+</div>
+<br>
+
+{% endfor %}
+{% endblock %}
