@@ -27,7 +27,7 @@ SECRET_KEY = 'byc-z_#_c#jkc#$a^1c77q^n3ok!(jek&53*10fypm0ziq1nbj'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['https://ecstatic-mestorf-80becd.netlify.app',]
 
 
 # Application definition
